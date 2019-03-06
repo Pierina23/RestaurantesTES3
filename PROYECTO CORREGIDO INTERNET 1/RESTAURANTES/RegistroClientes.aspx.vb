@@ -18,7 +18,8 @@ Partial Class RegistroClientes
             cmd.CommandType = CommandType.StoredProcedure
             cmd.Parameters.Add("@Nombres", SqlDbType.VarChar, 30).Value = Me.TxtNomClie.Text
             cmd.Parameters.Add("@Apellido", SqlDbType.VarChar, 30).Value = Me.TxtApeClie.Text
-            Dim fecNac As Date = DateTime.Parse(TxtFechaNac.Text)
+            Dim fecha As String = Convert.ToDateTime(TxtFechaNac.Text).ToString("yyyy-MM-dd") 'TxtFechaNac.Text.ToString("yyyy-MM-dd")
+            Dim fecNac As Date = DateTime.Parse(fecha)
             cmd.Parameters.Add("@FchNaci", SqlDbType.DateTime, 30).Value = fecNac
             cmd.Parameters.Add("@Celu", SqlDbType.VarChar, 10).Value = Me.txtCelular.Text
             cmd.Parameters.Add("@Telf", SqlDbType.VarChar, 9).Value = Me.TxtTelf.Text
