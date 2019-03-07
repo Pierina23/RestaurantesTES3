@@ -28,6 +28,8 @@ var{
 		outline: 0;
     vertical-align: top;
     text-align: center;
+    height: 54px;
+    width: 557px;
 }
 
 ol, ul {

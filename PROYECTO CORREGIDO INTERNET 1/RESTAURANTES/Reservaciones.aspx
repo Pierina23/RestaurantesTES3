@@ -1,6 +1,6 @@
-﻿<%@ Page Title="" Language="VB" MasterPageFile="MasterPage.master" AutoEventWireup="false" CodeFile="Reservaciones.aspx.vb" Inherits="_Default"  %>
+﻿<%@ Page Title="" Language="VB" MasterPageFile="MasterPage.master" AutoEventWireup="true" CodeFile="Reservaciones.aspx.vb" Inherits="_Default"  %>
 
-<%@ Register Assembly="AjaxControlToolkit" Namespace="AjaxControlToolkit" TagPrefix="ajaxToolkit" %>
+<%@ Register Assembly="AjaxControlToolkit" Namespace="AjaxControlToolkit" TagPrefix="asp" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" Runat="Server">
      <title>RestauranTES.com</title>
@@ -127,6 +127,44 @@
             color: #C56617;
             border-width: 1px;
         }
+         .star:before {
+            color: #f00;
+            font-size:2em
+        }
+
+        .empty:before {
+            color: #ccc;
+            font-size:2em
+        }
+
+        .WaitingStar:before {
+            color: #ed2025;
+            font-size:2em
+        }
+
+        .FilledStar:before {
+            color: #ffcc00;
+            font-size:2em
+        }
+
+        .blankstar
+{
+background-image: url(images/blank_star.png);
+width: 16px;
+height: 16px;
+}
+.waitingstar
+{
+background-image: url(images/half_star.png);
+width: 16px;
+height: 16px;
+}
+.shiningstar
+{
+background-image: url(images/shining_star.png);
+width: 16px;
+height: 16px;
+}
      </style>
 
 </asp:Content>
@@ -198,6 +236,7 @@
                             <asp:DropDownList ID="cbo_PlaBeb" runat="server" Width="214px" Height="21px" style="font-weight: 700; " AppendDataBoundItems="True" AutoPostBack="True" CssClass="auto-style38">
                                 <asp:ListItem>---</asp:ListItem>
                             </asp:DropDownList>
+                           
                         &nbsp;<span class="auto-style24"><br />
                             <strong>Precio:&nbsp; $</strong></span>
                             <asp:TextBox ID="tx_Precio" runat="server" BorderColor="Black" style="font-weight: 700; " Height="16px" Width="141px" Enabled="False" BorderStyle="Solid" CssClass="auto-style38" ></asp:TextBox>
@@ -220,13 +259,19 @@
                     <tr>
                         <td class="auto-style37">
                             &nbsp;</td>
-                        <td class="auto-style34">
-                            &nbsp;</td>
+                        <td class="auto-style34">                        
+                        <div>
+                                <asp:Rating ID="Rating1" runat="server" AutoPostBack="true" StarCssClass="blankstar" 
+                                WaitingStarCssClass="waitingstar" FilledStarCssClass="shiningstar" 
+                                EmptyStarCssClass="blankstar" >
+                                 </asp:Rating>
+                           </div>
+                        </td>
                         <td class="auto-style15">
                             &nbsp;</td>
                         <td class="auto-style18">
                                     &nbsp;</td>
-                    </tr>
+                    </tr>   
                     <tr>
                         <td class="auto-style6" colspan="4">
                             
